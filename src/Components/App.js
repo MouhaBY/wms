@@ -1,20 +1,19 @@
-import React, { useState } from 'react';
-import Login from './Login';
-import Main from './Main';
+import React from "react";
+import Login from "./Login";
+import Main from "./Main";
+import useToken from "./useToken";
 
 
 function App() {
-  const [authenticated, setAuthenticated] = useState(false)
+    const { token, setToken } = useToken();
 
-  return (
-    <>
-     {
-       authenticated ?
-       <Main  setAuthenticated={setAuthenticated} />
-       : <Login setAuthenticated={setAuthenticated} />
-     } 
-    </>
-  );
+    return(
+        <>
+            {
+                token && token ? <Main setToken={setToken} /> : <Login setToken={setToken} />
+            }
+        </>
+    );
 }
 
 export default App;

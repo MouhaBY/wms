@@ -1,20 +1,23 @@
 import React from "react";
-import PropTypes from "prop-types";
+import AppBar from "./AppBar";
+import Drawer from "./Drawer";
+import UrlHandler from "./UrlHandler";
+import { selectShowDrawer } from "../utils/selectors";
+import { useSelector } from "react-redux";
 
-export default function Main ({ setToken }){
+export default function Main (){
+    const showDrawer = useSelector(selectShowDrawer())
 
-    function handleDisconnect(){
-        setToken("");
-    }
 
     return(
-        <div>
-            <h1>Main App</h1>
-            <button onClick={handleDisconnect}>Se déconnecter</button>
+        <div className="main-div">
+            { showDrawer &&
+                <Drawer />
+            }
+            <div className="main-div-div">
+                <AppBar />
+                <UrlHandler />
+            </div>
         </div>
     );
 }
-
-Main.propTypes = {
-    setToken: PropTypes.func
-};

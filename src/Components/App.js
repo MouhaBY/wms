@@ -1,19 +1,21 @@
 import React from "react";
-import Login from "./Login";
+import "../Pages/App.css";
+import { useSelector } from 'react-redux';
+import Login from "../Pages/Login/Login";
 import Main from "./Main";
-import useToken from "./useToken";
+import { selectToken } from "../utils/selectors";
 
 
 function App() {
-    const { token, setToken } = useToken();
+    const token = useSelector(selectToken())
 
     return(
         <>
             {
-                token && token ? <Main setToken={setToken} /> : <Login setToken={setToken} />
+                token ? <Main /> : <Login />
             }
         </>
-    );
+    )
 }
 
 export default App;

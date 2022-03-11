@@ -1,7 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "bootstrap/dist/css/bootstrap.css";
+import { Provider } from "react-redux";
+import './index.css'
+//import "bootstrap/dist/css/bootstrap.css";
 
+import { store } from "./utils/store";
 import App from "./Components/App";
 import ErrorBoundary from "./Components/ErrorBoundaries";
 
@@ -9,7 +12,9 @@ import ErrorBoundary from "./Components/ErrorBoundaries";
 ReactDOM.render(
     <React.StrictMode>
         <ErrorBoundary>
-            <App />
+            <Provider store={store}>
+                <App />
+            </Provider>
         </ErrorBoundary>
     </React.StrictMode>,
     document.getElementById("root")

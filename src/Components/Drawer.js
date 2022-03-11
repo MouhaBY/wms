@@ -2,7 +2,7 @@
 import React from "react";
 
 const BUTTONS = [
-    {name:"Tableau de bord"}, 
+    {name:"Tableau de bord", route:"dashboard"}, 
     {name:"Utilisateurs"}, 
     {name:"Données"}, 
     {name:"Inventaires"}, 

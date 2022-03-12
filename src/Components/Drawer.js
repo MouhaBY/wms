@@ -1,28 +1,25 @@
-/* eslint-disable */
 import React from "react";
+import { Link as RouterLink } from "react-router-dom";
+import { MENUS } from "../Components/UrlHandler";
+import { useNavigate } from "react-router-dom";
 
-const BUTTONS = [
-    {name:"Tableau de bord", route:"dashboard"}, 
-    {name:"Utilisateurs"}, 
-    {name:"Données"}, 
-    {name:"Inventaires"}, 
-    {name:"Configurations"}
-]
 
 export default function Drawer(){
+    const navigate = useNavigate()
+
     return(
         <div className="drawer-div">
-            <div className="drawer-logo">
+            <div className="drawer-logo" onClick={()=>navigate("/")}>
                 Logo
             </div>
             <div>
                 {
-                BUTTONS.map((button)=>(
-                    <div>
-                        <button className="drawer-button">
-                        {button.name}
-                        </button>
-                    </div>
+                MENUS.map((menu, index)=>(
+                    <RouterLink key={index} to={menu.route} style={{ textDecoration: 'none', color: 'inherit' }}>
+                        <div onClick={()=>{}} className="drawer-button">
+                            {menu.name}
+                        </div>
+                    </RouterLink>
                 ))
                 }
             </div>

@@ -14,13 +14,15 @@
     display: flex;
     flex-direction: column;
     width: 100%;
+
     min-width: 600px;
+    
 }
 
 .drawer-div{
     display: flex;
     flex-direction: column;
-    background-color: lightgray;
+    background-color: white;
     display: flex;
     width: 15%;
     min-width: 200px;
@@ -40,8 +42,9 @@
     border-top: 0px;
     border-left: 0px;
     border-right: 0px;
+    border-bottom: 1px;
     border-color: lightgray;
-    background-color: lightgrey;
+    background-color: white;
 }
 
 .drawer-button:hover{
@@ -114,4 +117,18 @@
 
 .form-control{
     height: 25px;
+}
+
+.contain-div{
+    display: flex;
+    background-color: white;
+    min-height: 400px;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.main-div-url{
+    background-color: lightgray;
+    padding: 20px;
+    height: 100%;
 }

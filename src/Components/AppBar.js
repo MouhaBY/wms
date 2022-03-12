@@ -1,18 +1,20 @@
 import React from "react";
-import PropTypes from "prop-types";
+import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { logoutAction } from "../features/authentication";
 import { toggleDrawerAction } from "../features/drawer";
 
 export default function AppBar (){
-    const dispatch = useDispatch()
-    
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
     function handleDisconnect(){
-        dispatch(logoutAction())
+        dispatch(logoutAction());
+        navigate("/");
     }
 
     function handleDrawer(){
-        dispatch(toggleDrawerAction())
+        dispatch(toggleDrawerAction());
     }
 
     return(
@@ -23,7 +25,3 @@ export default function AppBar (){
         </div>
     )
 }
-
-AppBar.propTypes = {
-    setToken: PropTypes.func
-};

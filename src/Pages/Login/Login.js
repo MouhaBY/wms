@@ -26,6 +26,17 @@ export default function Login (){
                     }
                 }))         
             }
+            else if(username === "124" && password === "124"){
+                dispatch(loginAction({
+                    token:"124", 
+                    userData:{
+                        id:1,
+                        username:"124", 
+                        contact:"mby124",
+                        profile:"user"
+                    }
+                }))         
+            }
             else {
                 setHasError(true);
                 setErrorMessage("Identifiants incorrects");

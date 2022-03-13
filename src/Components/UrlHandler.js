@@ -12,9 +12,9 @@ import { checkAccess } from "../features/access";
 export const MENUS = [
     {name:"Tableau de bord", route:"dashboard", path:"/dashboard", element:<Dashboard />},
     {name:"Utilisateurs", route:"users", path:"/users", element:<Users /> }, 
-    {name:"Données", route:"datas", path:"/datas", element:<Users /> }, 
-    {name:"Inventaires", route:"inventories", path:"/inventories", element:<Users /> }, 
-    {name:"Configurations", route:"configurations", path:"/configurations", element:<Users /> }
+    {name:"Données", route:"datas", path:"/datas", element:<></> }, 
+    {name:"Inventaires", route:"inventories", path:"/inventories", element:<></> }, 
+    {name:"Configurations", route:"configurations", path:"/configurations", element:<></> }
 ]
 
 export default function UrlHandler(){
@@ -23,7 +23,6 @@ export default function UrlHandler(){
     return(
         <Routes>
             <Route path='*' element={<Notfound />} />
-            <Route path='/dashboard' element={<Dashboard />} />
             <Route path='/' element={<Dashboard />} />
             {MENUS.map((menu, index)=>(
                 <Route key={index} path={menu.path} element={checkAccess(profile, menu.route) ? menu.element : <NotAuthorized />} />

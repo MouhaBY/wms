@@ -1,9 +1,10 @@
-import React from 'react'
+import React from 'react';
+
 
 export default function Dashboard() {
   return (
         <div className='contain-div'>
-            <h2>Dashboard</h2>
+            <h2>Tableau de bord</h2>
         </div>
-  )
+    )
 }

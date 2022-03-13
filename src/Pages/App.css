@@ -29,6 +29,7 @@
 }
 
 .drawer-logo{
+    display: flex;
     background-color: white;
     height: 70px;
     align-items: center;
@@ -56,12 +57,31 @@
     flex-direction: row;
     background-color: darkblue;
     height: 70px;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .appbar-h2{
     color: white;
     margin-left: 15px;
     margin-right: auto;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.appbar-h3{
+    color: white;
+    margin-right: 10px;
+    font-weight: normal;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.appbar-span{
+    color: white;
+    font-style: italic;
+    margin-right: 8px;
 }
 
 .login-div{
@@ -127,8 +147,16 @@
     padding: 10px;
 }
 
+.containd-div-table{
+    margin-top: 20px;
+}
 .main-div-url{
     background-color: lightgray;
     padding: 20px;
     height: 100%;
+}
+
+.discrete-button{
+    background-color: transparent;
+    border: 0;
 }

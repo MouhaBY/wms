@@ -4,8 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { logoutAction } from "../features/authentication";
 import { toggleDrawerAction } from "../features/drawer";
 import { selectContact } from "../utils/selectors";
-import MenuIcon from '@mui/icons-material/Menu';
-import LogoutIcon from '@mui/icons-material/Logout';
+import MenuIcon from "@mui/icons-material/Menu";
+import LogoutIcon from "@mui/icons-material/Logout";
 
 
 export default function AppBar (){
@@ -34,5 +34,5 @@ export default function AppBar (){
                 <LogoutIcon style={{color:"red"}}/>
             </button>
         </div>
-    )
+    );
 }

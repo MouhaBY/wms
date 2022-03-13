@@ -24,7 +24,7 @@ export default function Login (){
                         contact:"mby123",
                         profile:"admin"
                     }
-                }))         
+                }));         
             }
             else if(username === "124" && password === "124"){
                 dispatch(loginAction({
@@ -35,7 +35,7 @@ export default function Login (){
                         contact:"mby124",
                         profile:"user"
                     }
-                }))         
+                }));         
             }
             else {
                 setHasError(true);
@@ -56,49 +56,49 @@ export default function Login (){
     },[username, password]);
 
     return(
-            <div className="login-div">
-                <div className="login-card">
-                    <h2 className="login-div-h2">
-                        Connexion
-                    </h2>
-                    <div className="login-div-body">
-                        <form onSubmit={handleSubmit}>
-                                <label htmlFor="usernameinput" className="form-label">
-                                    Nom d&apos;utilisateur
-                                    <input 
-                                    type="text" 
-                                    className="form-control" 
-                                    id="usernameinput" 
-                                    placeholder="Votre nom d'utilisateur" 
-                                    value={username} 
-                                    onChange={evt => setUsername(evt.target.value)}
-                                    />                            
-                                </label>
-                                <label htmlFor="passwordinput" className="form-label">
-                                    Mot de passe
-                                    <input 
-                                    type="password" 
-                                    className="form-control" 
-                                    id="passwordinput" 
-                                    placeholder="Votre mot de passe" 
-                                    value={password} 
-                                    onChange={evt => setPassword(evt.target.value)} 
-                                    />
-                                </label>
-                            {
-                                hasError && 
+        <div className="login-div">
+            <div className="login-card">
+                <h2 className="login-div-h2">
+                    Connexion
+                </h2>
+                <div className="login-div-body">
+                    <form onSubmit={handleSubmit}>
+                        <label htmlFor="usernameinput" className="form-label">
+                            Nom d&apos;utilisateur
+                            <input 
+                                type="text" 
+                                className="form-control" 
+                                id="usernameinput" 
+                                placeholder="Votre nom d'utilisateur" 
+                                value={username} 
+                                onChange={evt => setUsername(evt.target.value)}
+                            />                            
+                        </label>
+                        <label htmlFor="passwordinput" className="form-label">
+                            Mot de passe
+                            <input 
+                                type="password" 
+                                className="form-control" 
+                                id="passwordinput" 
+                                placeholder="Votre mot de passe" 
+                                value={password} 
+                                onChange={evt => setPassword(evt.target.value)}                                 
+                            />
+                        </label>
+                        {
+                            hasError && 
                                 <div className="login-error">
                                     {errorMessage}
                                 </div>
-                            }
-                            <div className="login-div-button">
-                                <button className="login-button" type='submit' disabled={!isFormValid}>
-                                    Se connecter
-                                </button>
-                            </div>
-                        </form>
-                    </div>
+                        }
+                        <div className="login-div-button">
+                            <button className="login-button" type='submit' disabled={!isFormValid}>
+                                Se connecter
+                            </button>
+                        </div>
+                    </form>
                 </div>
             </div>
+        </div>
     );
 }

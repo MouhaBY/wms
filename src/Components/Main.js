@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 import { BrowserRouter as Router } from "react-router-dom";
 
 export default function Main (){
-    const showDrawer = useSelector(selectShowDrawer())
+    const showDrawer = useSelector(selectShowDrawer());
 
     return(
         <div className="main-div">

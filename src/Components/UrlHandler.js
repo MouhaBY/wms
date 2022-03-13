@@ -15,7 +15,7 @@ export const MENUS = [
     {name:"Données", route:"datas", path:"/datas", element:<></> }, 
     {name:"Inventaires", route:"inventories", path:"/inventories", element:<></> }, 
     {name:"Configurations", route:"configurations", path:"/configurations", element:<></> }
-]
+];
 
 export default function UrlHandler(){
     const profile = useSelector(selectProfile());
@@ -29,5 +29,5 @@ export default function UrlHandler(){
             ))
             }
         </Routes>
-    )
+    );
 }

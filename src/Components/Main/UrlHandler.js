@@ -1,12 +1,12 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import Users from "../Pages/Users/Users";
-import Dashboard from "../Pages/Dashboard/Dashboard";
-import Notfound from "../Pages/Notfound/Notfound";
-import NotAuthorized from "../Pages/NotAuthorized/NotAuthorized";
+import Users from "../../Pages/Users/Users";
+import Dashboard from "../../Pages/Dashboard/Dashboard";
+import Notfound from "../../Pages/Notfound/Notfound";
+import NotAuthorized from "../../Pages/NotAuthorized/NotAuthorized";
 import { useSelector } from "react-redux";
-import { selectProfile } from "../utils/selectors";
-import { checkAccess } from "../features/access";
+import { selectProfile } from "../../utils/selectors";
+import { checkAccess } from "../../features/access";
 
 
 export const MENUS = [

@@ -1,9 +1,9 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { logoutAction } from "../features/authentication";
-import { toggleDrawerAction } from "../features/drawer";
-import { selectContact } from "../utils/selectors";
+import { logoutAction } from "../../features/authentication";
+import { toggleDrawerAction } from "../../features/drawer";
+import { selectContact } from "../../utils/selectors";
 import MenuIcon from "@mui/icons-material/Menu";
 import LogoutIcon from "@mui/icons-material/Logout";
 

@@ -1,10 +1,10 @@
 import React from "react";
 import { Link as RouterLink } from "react-router-dom";
-import { MENUS } from "../Components/UrlHandler";
+import { MENUS } from "./UrlHandler";
 import { useNavigate } from "react-router-dom";
-import { checkAccess } from "../features/access";
+import { checkAccess } from "../../features/access";
 import { useSelector } from "react-redux";
-import { selectProfile } from "../utils/selectors";
+import { selectProfile } from "../../utils/selectors";
 import WarehouseRoundedIcon from "@mui/icons-material/WarehouseRounded";
 
 

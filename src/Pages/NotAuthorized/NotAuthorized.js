@@ -9,9 +9,9 @@ export default function NotAuthorized() {
         <div>
             <h2>Accès non autorisé</h2>
             <p>
-                Votre profil n`&apos;`est pas autorisé à accéder à cette page
+                Votre profil n&apos;est pas autorisé à accéder à cette page
             </p>
-            <button onClick={handleReturn}>Retour à l`&apos;`accueil</button>
+            <button onClick={handleReturn}>Retour à l&apos;accueil</button>
         </div>
     );
 }

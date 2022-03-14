@@ -16,7 +16,7 @@ export default function Drawer(){
         <div className="drawer-div">
             <div className="drawer-logo" onClick={()=>navigate("/")}>
                 <WarehouseRoundedIcon fontSize="large" color="primary"/>
-                <h2 style={{color:"#3874CB"}}>WMS</h2>
+                <h2 className="drawer-title">WMS</h2>
             </div>
             <div>
                 {

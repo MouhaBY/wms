@@ -21,7 +21,7 @@ export default function Users() {
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Nom d`&apos;`utilisateurs</th>
+                            <th>Nom d&apos;utilisateurs</th>
                             <th>Contact</th>
                             <th>Profil</th>
                             <th>Etat</th>

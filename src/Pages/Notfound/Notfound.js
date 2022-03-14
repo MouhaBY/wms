@@ -7,11 +7,11 @@ export default function Notfound() {
 
     return (
         <div>
-            <h2>Cette page n`&apos;`existe pas</h2>
+            <h2>Cette page n&apos;existe pas</h2>
             <p>
                 La page que vous cherchez semble introuvable !
             </p>
-            <button onClick={handleReturn}>Retour à l``&apos;accueil</button>
+            <button onClick={handleReturn}>Retour à l&apos;accueil</button>
         </div>
     );
 }

@@ -3,6 +3,7 @@ import Table from "react-bootstrap/Table";
 import CheckCircleRoundedIcon from "@mui/icons-material/CheckCircleRounded";
 import CancelRoundedIcon from "@mui/icons-material/CancelRounded";
 import EditIcon from "@mui/icons-material/Edit";
+import { useNavigate } from "react-router-dom";
 
 
 const USERS = [
@@ -12,10 +13,18 @@ const USERS = [
     {_id:4, username:"BYA", contact:"Bayrem YAHYAOUI", profile:{_id:"Guest", name:"Visiteur"}, isActif:false}
 ];
 
+
 export default function Users() {
+    const navigate = useNavigate();
+    const handleAdd = () => navigate("add");
+    const handleEdit = (id) => navigate("edit/"+ id);
+
     return (
         <div className="contain-div">
             <h2>Utilisateurs</h2>
+            <div>
+                <button type="button" className="btn btn-primary" onClick={handleAdd}>+ Ajouter</button>
+            </div>
             <div className="containd-div-table">
                 <Table striped bordered hover>
                     <thead>
@@ -37,7 +46,11 @@ export default function Users() {
                                     <td>{user.contact}</td>
                                     <td>{user.profile.name}</td>
                                     <td>{user.isActif ? <CheckCircleRoundedIcon style={{fill: "green"}}/> : <CancelRoundedIcon style={{fill: "red"}}/>}</td>
-                                    <td><EditIcon /></td>
+                                    <td>
+                                        <button className="btn btn-outline-primary btn-sm" onClick={ () => handleEdit(user._id) }>
+                                            <EditIcon />
+                                        </button>
+                                    </td>
                                 </tr>
                             ))
                         }

@@ -4,6 +4,9 @@ import Users from "../../Pages/Users/Users";
 import Dashboard from "../../Pages/Dashboard/Dashboard";
 import Notfound from "../../Pages/Notfound/Notfound";
 import NotAuthorized from "../../Pages/NotAuthorized/NotAuthorized";
+import AddUser from "../../Pages/Users/AddUser";
+import EditUser from "../../Pages/Users/EditUser";
+
 import { useSelector } from "react-redux";
 import { selectProfile } from "../../utils/selectors";
 import { checkAccess } from "../../features/access";
@@ -22,6 +25,11 @@ export const MENUS = [
     {name:"Configurations", route:"configurations", path:"/configurations", element:<></>, icon:<SettingsIcon/> }
 ];
 
+export const PATHS = [
+    {name:"Créer utilisateur", route:"adduser", path:"/users/add", element:<AddUser />},
+    {name:"Modifier utilisateur", route:"edituser", path:"/users/edit/:id", element:<EditUser />},
+];
+
 export default function UrlHandler(){
     const profile = useSelector(selectProfile());
 
@@ -29,9 +37,15 @@ export default function UrlHandler(){
         <Routes>
             <Route path='*' element={<Notfound />} />
             <Route path='/' element={<Dashboard />} />
-            {MENUS.map((menu, index)=>(
-                <Route key={index} path={menu.path} element={checkAccess(profile, menu.route) ? menu.element : <NotAuthorized />} />
-            ))
+            {
+                MENUS.map((menu, index)=>(
+                    <Route key={index} path={menu.path} element={checkAccess(profile, menu.route) ? menu.element : <NotAuthorized />} />
+                ))
+            }
+            {
+                PATHS.map((path, index)=>(
+                    <Route key={index} path={path.path} element={path.element}/>
+                ))
             }
         </Routes>
     );

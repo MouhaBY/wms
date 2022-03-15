@@ -33,7 +33,7 @@ export default function AppBar (){
                 <button className="navbar-toggler" onClick={handleDrawer}> 
                     <MenuIcon style={{ color: "white" }}/>
                 </button>
-                <text className="navbar-brand">Warehouse Management System</text>
+                <span className="navbar-brand">Warehouse Management System</span>
             </div>
             <div className="d-flex justify-content-end">
                 <span className="navbar-text">Connecté en tant que : </span>
@@ -43,7 +43,7 @@ export default function AppBar (){
                 {
                     showDropdown && <div className="mydropdown">                            
                         <button className="dropdown-item" onClick={handleDisconnect}>
-                            <text>Se déconnecter</text>
+                            <span>Se déconnecter</span>
                             <LogoutIcon style={{color:"red"}}/>
                         </button>
                     </div>

@@ -15,7 +15,7 @@ export default function AppBar (){
     const contact = useSelector(selectContact());
 
     function toggleDropdown(){
-        setShowDropdown(!showDropdown)
+        setShowDropdown(!showDropdown);
     }
 
     function handleDisconnect(){
@@ -42,10 +42,10 @@ export default function AppBar (){
                 </div>
                 {
                     showDropdown && <div className="mydropdown">                            
-                            <button className="dropdown-item" onClick={handleDisconnect}>
-                                <text>Se déconnecter</text>
-                                <LogoutIcon style={{color:"red"}}/>
-                            </button>
+                        <button className="dropdown-item" onClick={handleDisconnect}>
+                            <text>Se déconnecter</text>
+                            <LogoutIcon style={{color:"red"}}/>
+                        </button>
                     </div>
                 }
             </div>

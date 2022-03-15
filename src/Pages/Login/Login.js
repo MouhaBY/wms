@@ -72,13 +72,13 @@ export default function Login (){
                                         <label htmlFor="usernameinput" className="form-label">
                                             Nom d&apos;utilisateur     
                                             <input 
-                                            type="text" 
-                                            placeholder="Votre nom d&apos;utilisateur"
-                                            className="form-control form-control-lg" 
-                                            id="usernameinput" 
-                                            value={username} 
-                                            onChange={evt => setUsername(evt.target.value)}
-                                        />      
+                                                type="text" 
+                                                placeholder="Votre nom d&apos;utilisateur"
+                                                className="form-control form-control-lg" 
+                                                id="usernameinput" 
+                                                value={username} 
+                                                onChange={evt => setUsername(evt.target.value)}
+                                            />      
                                         </label>
                                     </div>
                                     <div className="form-outline mb-4">

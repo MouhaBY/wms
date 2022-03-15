@@ -7,14 +7,19 @@ import NotAuthorized from "../../Pages/NotAuthorized/NotAuthorized";
 import { useSelector } from "react-redux";
 import { selectProfile } from "../../utils/selectors";
 import { checkAccess } from "../../features/access";
+import HomeIcon from "@mui/icons-material/Home";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import FeedIcon from "@mui/icons-material/Feed";
+import FactoryIcon from "@mui/icons-material/Factory";
+import SettingsIcon from "@mui/icons-material/Settings";
 
 
 export const MENUS = [
-    {name:"Tableau de bord", route:"dashboard", path:"/dashboard", element:<Dashboard />},
-    {name:"Utilisateurs", route:"users", path:"/users", element:<Users /> }, 
-    {name:"Données", route:"datas", path:"/datas", element:<></> }, 
-    {name:"Inventaires", route:"inventories", path:"/inventories", element:<></> }, 
-    {name:"Configurations", route:"configurations", path:"/configurations", element:<></> }
+    {name:"Tableau de bord", route:"dashboard", path:"/dashboard", element:<Dashboard />, icon:<HomeIcon/>},
+    {name:"Utilisateurs", route:"users", path:"/users", element:<Users />, icon:<AccountCircleIcon/> }, 
+    {name:"Données", route:"datas", path:"/datas", element:<></>, icon:<FeedIcon/> }, 
+    {name:"Inventaires", route:"inventories", path:"/inventories", element:<></>, icon:<FactoryIcon/> }, 
+    {name:"Configurations", route:"configurations", path:"/configurations", element:<></>, icon:<SettingsIcon/> }
 ];
 
 export default function UrlHandler(){

@@ -13,7 +13,10 @@ export default function Drawer(){
     const showDrawer = useSelector(selectShowDrawer());
 
     return(
-        <div className={"d-flex flex-column flex-shrink-0 bg-dark " + (showDrawer ? "p-3 text-white" : "")} style={{width: showDrawer ? 280 : 60}}>
+        <div 
+            className={"d-flex flex-column flex-shrink-0 bg-dark " + (showDrawer ? "p-3 text-white" : "")} 
+            style={{width: showDrawer ? 280 : 60}}
+        >
             <div 
                 className={"d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none"} 
                 onClick={()=>navigate("/")}

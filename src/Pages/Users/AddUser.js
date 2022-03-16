@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 
 
 const PROFILES = [
@@ -14,6 +16,11 @@ const PROFILES = [
 
 export default function AddUser() {
     const navigate = useNavigate();
+    const [showPassword, setShowPassword] = useState(false);
+
+    const togglePassword = () => {
+        setShowPassword(!showPassword);      
+    };
 
     const formSchema = Yup.object().shape({
         contact: Yup.string()
@@ -33,13 +40,16 @@ export default function AddUser() {
     });
 
     const formOptions = { resolver: yupResolver(formSchema) };
-    const { register, handleSubmit, reset, formState: { errors } } = useForm(formOptions);
+    const { register, handleSubmit, formState: { errors } } = useForm(formOptions);
 
     const handleReturn = () => navigate("/users");
-    const handleSave = () => navigate("/users");
+    const handleSave = (data) => {
+        console.log(data);
+        navigate("/users");
+    };
 
     const onSubmit = (data) => {
-        handleSave();
+        handleSave(data);
     };
 
     return (
@@ -58,7 +68,7 @@ export default function AddUser() {
                     <label htmlFor="contactinput">Nom du contact</label>
                     <input
                         type="text" 
-                        className={`form-control form-control-lg ${errors.password ? "is-invalid" : ""}`}
+                        className={`form-control form-control-lg ${errors.contact ? "is-invalid" : ""}`}
                         id="contactinput"
                         placeholder="Votre nom du contact"
                         {...register("contact")}
@@ -79,19 +89,28 @@ export default function AddUser() {
                 <div className="form-row">
                     <div className="form-group col-md-6">
                         <label htmlFor="passwordinput">Mot de passe</label>
-                        <input 
-                            type="pasword" 
-                            className={`form-control form-control-lg ${errors.password ? "is-invalid" : ""}`}
-                            id="passwordinput" 
-                            placeholder="Votre mot de passe"
-                            {...register("password")}
-                        />
+                        <div className="input-group" id="show_hide_password">
+                            <input 
+                                type={showPassword ? "text" : "password"}  
+                                className={`form-control form-control-lg ${errors.password ? "is-invalid" : ""}`}
+                                id="passwordinput" 
+                                placeholder="Votre mot de passe"
+                                {...register("password")}
+                            />
+                            <div className="input-group-addon">
+                                <div className="form-control form-control-lg" type="button" onClick={togglePassword}>
+                                    {
+                                        showPassword ? <VisibilityIcon /> : <VisibilityOffIcon />
+                                    }
+                                </div>
+                            </div>
+                        </div>
                         {errors.password && <p className="invalid-feedback">{errors.password?.message}</p>}
                     </div>
                     <div className="form-group col-md-6">
                         <label htmlFor="confirmpasswordinput">Confirmer mot de passe</label>
                         <input 
-                            type="password" 
+                            type={showPassword ? "text" : "password"} 
                             className={`form-control form-control-lg ${errors.confirmpassword ? "is-invalid" : ""}`}
                             id="confirmpasswordinput" 
                             placeholder="Confirmer votre mot de passe"

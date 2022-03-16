@@ -36,7 +36,7 @@ export default function UrlHandler(){
     return(
         <Routes>
             <Route path='*' element={<Notfound />} />
-            <Route path='/' element={<Dashboard />} />
+            <Route exact path='/' element={<Dashboard />} />
             {
                 MENUS.map((menu, index)=>(
                     <Route key={index} path={menu.path} element={checkAccess(profile, menu.route) ? menu.element : <NotAuthorized />} />

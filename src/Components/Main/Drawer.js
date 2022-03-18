@@ -1,10 +1,23 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { NavLink as RouterLink, useNavigate } from "react-router-dom";
-import { MENUS } from "./UrlHandler";
 import { checkAccess } from "../../features/access";
 import { selectProfile, selectShowDrawer } from "../../utils/selectors";
 import WarehouseRoundedIcon from "@mui/icons-material/WarehouseRounded";
+import HomeIcon from "@mui/icons-material/Home";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import FeedIcon from "@mui/icons-material/Feed";
+import FactoryIcon from "@mui/icons-material/Factory";
+import SettingsIcon from "@mui/icons-material/Settings";
+
+
+const MENUS = [
+    {name:"Tableau de bord", route:"dashboard", icon:<HomeIcon/>},
+    {name:"Utilisateurs", route:"users", icon:<AccountCircleIcon/> }, 
+    {name:"Données", route:"datas", icon:<FeedIcon/> }, 
+    {name:"Inventaires", route:"inventories", icon:<FactoryIcon/> }, 
+    {name:"Configurations", route:"configurations", icon:<SettingsIcon/> }
+];
 
 
 export default function Drawer(){

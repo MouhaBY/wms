@@ -35,7 +35,6 @@ export default function editUser() {
     const togglePassword = () => {
         setShowPassword(!showPassword);      
     };
-    
 
     const formSchema = Yup.object().shape({
         contact: Yup.string()

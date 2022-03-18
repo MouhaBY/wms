@@ -97,7 +97,7 @@ export default function AddUser() {
                                 placeholder="Votre mot de passe"
                                 {...register("password")}
                             />
-                            <div className="input-group-addon">
+                            <div className="input-group-append">
                                 <div className="form-control form-control-lg" type="button" onClick={togglePassword}>
                                     {
                                         showPassword ? <VisibilityIcon /> : <VisibilityOffIcon />

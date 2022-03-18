@@ -1,11 +1,11 @@
 export const checkAccess = (profile, menu) => {
     if (profile === "admin"){
-        var adminMenus = [ "inventories" , "users", "dashboard", "configurations" ];
+        var adminMenus = [ "inventories" , "users", "usersadd", "dashboard", "configurations" ];
         if(adminMenus.indexOf(menu)>=0) return true;
         else return false;
     }
     else if (profile === "user"){
-        var userMenus = [ "datas", "dashboard" ];
+        var userMenus = [ "datas", "dashboard", "users" ];
         if(userMenus.indexOf(menu)>=0) return true;
         else return false;
     }

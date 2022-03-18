@@ -4,7 +4,9 @@ import CheckCircleRoundedIcon from "@mui/icons-material/CheckCircleRounded";
 import CancelRoundedIcon from "@mui/icons-material/CancelRounded";
 import EditIcon from "@mui/icons-material/Edit";
 import { useNavigate } from "react-router-dom";
-
+import { checkAccess } from "../../features/access";
+import { useSelector } from "react-redux";
+import { selectProfile } from "../../utils/selectors";
 
 const USERS = [
     {_id:1, username:"MBY", contact:"Mouha", profile:{_id:"Admin", name:"Administrateur"}, isActif:true}, 
@@ -18,12 +20,17 @@ export default function Users() {
     const navigate = useNavigate();
     const handleAdd = () => navigate("add");
     const handleEdit = (id) => navigate("edit/"+ id);
+    const profile = useSelector(selectProfile())
 
     return (
         <div className="contain-div">
             <h2>Utilisateurs</h2>
             <div>
-                <button type="button" className="btn btn-primary" onClick={handleAdd}>+ Ajouter</button>
+            {
+                checkAccess(profile, "usersadd") &&
+                    <button type="button" className="btn btn-primary" onClick={handleAdd}>+ Ajouter</button>
+                    
+            }
             </div>
             <div className="containd-div-table">
                 <Table striped bordered hover>
@@ -47,9 +54,12 @@ export default function Users() {
                                     <td>{user.profile.name}</td>
                                     <td>{user.isActif ? <CheckCircleRoundedIcon style={{fill: "green"}}/> : <CancelRoundedIcon style={{fill: "red"}}/>}</td>
                                     <td>
-                                        <button className="btn btn-outline-primary btn-sm" onClick={ () => handleEdit(user._id) }>
-                                            <EditIcon />
-                                        </button>
+                                    {
+                                        checkAccess(profile, "usersadd") && 
+                                            <button className="btn btn-outline-primary btn-sm" onClick={ () => handleEdit(user._id) }>
+                                                <EditIcon />
+                                            </button>
+                                    }
                                     </td>
                                 </tr>
                             ))

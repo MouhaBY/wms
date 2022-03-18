@@ -1,22 +1,22 @@
 import React from "react";
 import AppBar from "./AppBar";
 import Drawer from "./Drawer";
-import UrlHandler from "./UrlHandler";
+import SiteRoutes from "../SiteRoutes";
 import { BrowserRouter as Router } from "react-router-dom";
 
 
 export default function Main (){
     return(
-        <div className="main-div">
-            <Router>
+        <Router>
+            <div className="main-div">
                 <Drawer />
                 <div className="main-div-div">
                     <AppBar />
                     <div className="main-div-url">
-                        <UrlHandler />
+                        <SiteRoutes />
                     </div>
                 </div>
-            </Router>
-        </div>
+            </div>
+        </Router>
     );
 }

@@ -4,7 +4,7 @@ import CheckCircleRoundedIcon from "@mui/icons-material/CheckCircleRounded";
 import CancelRoundedIcon from "@mui/icons-material/CancelRounded";
 import EditIcon from "@mui/icons-material/Edit";
 import { useNavigate } from "react-router-dom";
-
+import { getPath } from "../../routes";
 
 const USERS = [
     {_id:1, username:"MBY", contact:"Mouha", profile:{_id:"Admin", name:"Administrateur"}, isActif:true}, 
@@ -16,8 +16,8 @@ const USERS = [
 
 export default function Users() {
     const navigate = useNavigate();
-    const handleAdd = () => navigate("add");
-    const handleEdit = (id) => navigate("edit/"+ id);
+    const handleAdd = () => navigate(getPath("adduser"));
+    const handleEdit = (id) => navigate(getPath("edituser", {"id": id}));
 
     return (
         <div className="contain-div">

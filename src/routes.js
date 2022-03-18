@@ -13,7 +13,7 @@ const routes = [
     { description:"Données", name:"datas", path:"/datas", element:<Users/> }, 
     { description:"Inventaires", name:"inventories", path:"/inventories", element:<></> }, 
     { description:"Configurations", name:"configurations", path:"/configurations", element:<></>},
-    { description:"Créer utilisateur", name:"usersadd", path:"/users/add", element:<AddUser />, roles:["admin"]},
+    { description:"Créer utilisateur", name:"adduser", path:"/users/add", element:<AddUser />, roles:["admin"]},
     { description:"Modifier utilisateur", name:"edituser", path:"/users/edit/:id", element:<EditUser />, roles:["admin"]},
 ];
 
@@ -36,4 +36,15 @@ export const getRoutes = () => {
     };
     const flatRoutes = compile(parentRoute, routes);
     return flatRoutes;
+}
+
+export const getPath = (name, params= null) => {
+    const routeFound = getRoutes().find(route => route.name === name);
+    let path = routeFound ? routeFound.path : null;
+    if (path && params) {
+        Object.entries(params).forEach(([key, value]) => {
+            path = path ? path.replace(`:${key}`, value) : '';
+        });
+    }
+    return path;
 }

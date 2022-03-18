@@ -17,4 +17,4 @@ export default function hasRoles(roles) {
 
     // check profile granted ?
     return roles.includes(profile);
-};
+}

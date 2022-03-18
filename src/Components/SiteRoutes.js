@@ -1,46 +1,38 @@
 import React from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
+import PropTypes from "prop-types";
 import { getRoutes } from "../routes";
 import Notfound from "../Pages/Notfound/Notfound";
 import NotAuthorized from "../Pages/NotAuthorized/NotAuthorized";
 import hasRoles from "../services/security/hasRoles";
 
 
-/*const PrivateRoute = ({ component: Component, roles, path }) => {
-    roles = roles || [];
-    return (
-        <Route
-            path={path}
-            exact={true}
-            render={(props) => 
-                hasRoles(roles) ? (
-                    <Component {...props} />
-                ) : (
-                    isAuth() ? (
-                        <NotAuthorized />
-                    ) : (
-                        <Navigate to="/login" />
-                    )
-                )
-            }
-        />
-    );
-}*/
+function PrivateRoute({ children }) {
+    var roles = children.roles || [];
+    return hasRoles(roles) ? children.element : <NotAuthorized />;
+}
 
 export default function SiteRoutes(){
 
     return(
         <Routes>
-            <Route path='*' element={ <Notfound />} />
+            <Route path="*" element={ <Notfound />} />
             {
                 getRoutes().map((route, index) => ( 
                     <Route 
-                        key={index} 
+                        key={index}
                         {...route}
-                        element={hasRoles(route.roles) ? route.element : <NotAuthorized />}
+                        element={<PrivateRoute>{route}</PrivateRoute>}
                     />
                 ))
             }
         </Routes>
     );
 }
+
+PrivateRoute.propTypes = {
+    children: PropTypes.shape({
+        roles: PropTypes.arrayOf(PropTypes.string),
+        element: PropTypes.element
+    })
+};

@@ -23,11 +23,11 @@ export default function Users() {
         <div className="contain-div">
             <h2>Utilisateurs</h2>
             <div>
-            {
-                true &&
-                    <button type="button" className="btn btn-primary" onClick={handleAdd}>+ Ajouter</button>
-                    
-            }
+                {
+                    true &&
+                        <button type="button" className="btn btn-primary" onClick={handleAdd}>+ Ajouter</button>
+                        
+                }
             </div>
             <div className="containd-div-table">
                 <Table striped bordered hover>
@@ -51,12 +51,15 @@ export default function Users() {
                                     <td>{user.profile.name}</td>
                                     <td>{user.isActif ? <CheckCircleRoundedIcon style={{fill: "green"}}/> : <CancelRoundedIcon style={{fill: "red"}}/>}</td>
                                     <td>
-                                    {
-                                        true &&
-                                            <button className="btn btn-outline-primary btn-sm" onClick={ () => handleEdit(user._id) }>
-                                                <EditIcon />
-                                            </button>
-                                    }
+                                        {
+                                            true &&
+                                                <button 
+                                                    className="btn btn-outline-primary btn-sm" 
+                                                    onClick={ () => handleEdit(user._id) }
+                                                >
+                                                    <EditIcon />
+                                                </button>
+                                        }
                                     </td>
                                 </tr>
                             ))

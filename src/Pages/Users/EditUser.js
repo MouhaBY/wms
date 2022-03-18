@@ -25,7 +25,7 @@ export default function editUser() {
 
     const handleSave = (data) => {
         navigate("/users");
-        console.log({id, ...data})
+        console.log({id, ...data});
     };
 
     const onSubmit = (data) => {

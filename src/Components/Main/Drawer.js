@@ -9,16 +9,16 @@ import FeedIcon from "@mui/icons-material/Feed";
 import FactoryIcon from "@mui/icons-material/Factory";
 import SettingsIcon from "@mui/icons-material/Settings";
 import hasRoles from "../../services/security/hasRoles";
+import { getRoles } from "../../routes";
 
 
 const MENUS = [
-    {name:"Tableau de bord", route:"dashboard", icon:<HomeIcon/>},
-    {name:"Utilisateurs", route:"users", icon:<AccountCircleIcon/>, roles:["user", "admin"] }, 
-    {name:"Données", route:"datas", icon:<FeedIcon/>, roles:["user"] }, 
-    {name:"Inventaires", route:"inventories", icon:<FactoryIcon/> }, 
-    {name:"Configurations", route:"configurations", icon:<SettingsIcon/>, roles:["admin"] }
+    {title:"Tableau de bord", route:"dashboard", icon:<HomeIcon/>},
+    {title:"Utilisateurs", route:"users", icon:<AccountCircleIcon/>}, 
+    {title:"Données", route:"datas", icon:<FeedIcon/>}, 
+    {title:"Inventaires", route:"inventories", icon:<FactoryIcon/> }, 
+    {title:"Configurations", route:"configurations", icon:<SettingsIcon/>}
 ];
-
 
 export default function Drawer(){
     const navigate = useNavigate();
@@ -30,7 +30,7 @@ export default function Drawer(){
             style={{width: showDrawer ? 280 : 60}}
         >
             <div 
-                className={"d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none"} 
+                className={"d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none"}
                 onClick={ ()=>navigate("/") }
             >
                 <svg className={"bi "+ (showDrawer ? "me-2" : "")} style={{width:40, height:32}}>
@@ -44,7 +44,7 @@ export default function Drawer(){
             <ul className="nav nav-pills flex-column mb-auto text-center">
                 {
                     MENUS.map((menu, index)=>(
-                        hasRoles(menu.roles) && 
+                        hasRoles(getRoles(menu.route)) && 
                             <li key={index} className="nav-item">
                                 <RouterLink 
                                     to={menu.route} 
@@ -54,7 +54,7 @@ export default function Drawer(){
                                     <svg className="bi me-2" style={{width:showDrawer ? 20 : 24, height:showDrawer ? 20 : 24}} >
                                         {menu.icon}
                                     </svg>
-                                    {showDrawer && menu.name}
+                                    {showDrawer && menu.title}
                                 </RouterLink> 
                             </li>
                     ))

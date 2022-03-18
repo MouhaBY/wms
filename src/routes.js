@@ -13,7 +13,7 @@ const routes = [
     { description:"Utilisateurs", name:"users", path:"/users", element:<Users />, roles:["user", "admin"] }, 
     { description:"Données", name:"datas", path:"/datas", element:<Users/>, roles:["user"] }, 
     { description:"Inventaires", name:"inventories", path:"/inventories", element:<></> }, 
-    { description:"Configurations", name:"configurations", path:"/configurations", element:<></>},
+    { description:"Configurations", name:"configurations", path:"/configurations", element:<></>, roles:["admin"]},
     { description:"Créer utilisateur", name:"adduser", path:"/users/add", element:<AddUser />, roles:["admin"]},
     { description:"Modifier utilisateur", name:"edituser", path:"/users/edit/:id", element:<EditUser />, roles:["admin"]},
 ];
@@ -48,4 +48,10 @@ export const getPath = (name, params= null) => {
         });
     }
     return path;
+};
+
+export const getRoles = (name) => {
+    const routeFound = getRoutes().find(route => route.name === name);
+    let roles = routeFound ? routeFound.roles || [] : [];
+    return roles;
 };

@@ -31,11 +31,20 @@ export default function Login (){
                 dispatch(loginAction({
                     token:"124", 
                     userData:{
-                        id:1,
+                        id:2,
                         username:"124", 
                         contact:"mby124",
                         profile:"user"
                     }
+                }));         
+            }
+            else if(username === "125" && password === "125"){
+                dispatch(loginAction({
+                    token:"125", 
+                    userData:{
+                        id:3,
+                        username:"125", 
+                        contact:"mby125"                    }
                 }));         
             }
             else {

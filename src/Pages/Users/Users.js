@@ -4,9 +4,7 @@ import CheckCircleRoundedIcon from "@mui/icons-material/CheckCircleRounded";
 import CancelRoundedIcon from "@mui/icons-material/CancelRounded";
 import EditIcon from "@mui/icons-material/Edit";
 import { useNavigate } from "react-router-dom";
-import { checkAccess } from "../../features/access";
-import { useSelector } from "react-redux";
-import { selectProfile } from "../../utils/selectors";
+
 
 const USERS = [
     {_id:1, username:"MBY", contact:"Mouha", profile:{_id:"Admin", name:"Administrateur"}, isActif:true}, 
@@ -20,14 +18,13 @@ export default function Users() {
     const navigate = useNavigate();
     const handleAdd = () => navigate("add");
     const handleEdit = (id) => navigate("edit/"+ id);
-    const profile = useSelector(selectProfile())
 
     return (
         <div className="contain-div">
             <h2>Utilisateurs</h2>
             <div>
             {
-                checkAccess(profile, "usersadd") &&
+                true &&
                     <button type="button" className="btn btn-primary" onClick={handleAdd}>+ Ajouter</button>
                     
             }
@@ -55,7 +52,7 @@ export default function Users() {
                                     <td>{user.isActif ? <CheckCircleRoundedIcon style={{fill: "green"}}/> : <CancelRoundedIcon style={{fill: "red"}}/>}</td>
                                     <td>
                                     {
-                                        checkAccess(profile, "usersadd") && 
+                                        true &&
                                             <button className="btn btn-outline-primary btn-sm" onClick={ () => handleEdit(user._id) }>
                                                 <EditIcon />
                                             </button>

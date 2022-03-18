@@ -1,28 +1,27 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { NavLink as RouterLink, useNavigate } from "react-router-dom";
-import { checkAccess } from "../../features/access";
-import { selectProfile, selectShowDrawer } from "../../utils/selectors";
+import { selectShowDrawer } from "../../utils/selectors";
 import WarehouseRoundedIcon from "@mui/icons-material/WarehouseRounded";
 import HomeIcon from "@mui/icons-material/Home";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import FeedIcon from "@mui/icons-material/Feed";
 import FactoryIcon from "@mui/icons-material/Factory";
 import SettingsIcon from "@mui/icons-material/Settings";
+import hasRoles from "../../services/security/hasRoles";
 
 
 const MENUS = [
     {name:"Tableau de bord", route:"dashboard", icon:<HomeIcon/>},
-    {name:"Utilisateurs", route:"users", icon:<AccountCircleIcon/> }, 
-    {name:"Données", route:"datas", icon:<FeedIcon/> }, 
+    {name:"Utilisateurs", route:"users", icon:<AccountCircleIcon/>, roles:["user", "admin"] }, 
+    {name:"Données", route:"datas", icon:<FeedIcon/>, roles:["user"] }, 
     {name:"Inventaires", route:"inventories", icon:<FactoryIcon/> }, 
-    {name:"Configurations", route:"configurations", icon:<SettingsIcon/> }
+    {name:"Configurations", route:"configurations", icon:<SettingsIcon/>, roles:["admin"] }
 ];
 
 
 export default function Drawer(){
     const navigate = useNavigate();
-    const profile = useSelector(selectProfile());
     const showDrawer = useSelector(selectShowDrawer());
 
     return(
@@ -32,7 +31,7 @@ export default function Drawer(){
         >
             <div 
                 className={"d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none"} 
-                onClick={()=>navigate("/")}
+                onClick={ ()=>navigate("/") }
             >
                 <svg className={"bi "+ (showDrawer ? "me-2" : "")} style={{width:40, height:32}}>
                     <WarehouseRoundedIcon fontSize="large" color="primary"/>
@@ -45,7 +44,7 @@ export default function Drawer(){
             <ul className="nav nav-pills flex-column mb-auto text-center">
                 {
                     MENUS.map((menu, index)=>(
-                        checkAccess(profile, menu.route) && 
+                        hasRoles(menu.roles) && 
                             <li key={index} className="nav-item">
                                 <RouterLink 
                                     to={menu.route} 

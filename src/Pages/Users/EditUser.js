@@ -5,6 +5,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import siteMap from "../../siteMap";
 
 
 const PROFILES = [
@@ -14,19 +15,20 @@ const PROFILES = [
     {id:4, name:"guest", profileName:"Visiteur"},
 ];
 
-
 export default function editUser() {
     const navigate = useNavigate();
     const [updatePassword, setUpdatePassword] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
     const { id } = useParams();
 
-    const handleReturn = () => navigate("/users");
+    const handleReturn = () => navigate(siteMap.Users.path);
 
     const handleSave = (data) => {
-        navigate("/users");
+        navigate(siteMap.Users.path);
         console.log({id, ...data});
     };
+
+    const handledelete = () => navigate(siteMap.Users.path);
 
     const onSubmit = (data) => {
         handleSave(data);
@@ -77,10 +79,10 @@ export default function editUser() {
             <h2>Modifier utilisateur ({id})</h2>
             <form onSubmit={ handleSubmit(onSubmit) }>
                 <div>
-                    <button type="submit" className="btn btn-success m-1">
+                    <button type="submit" className="btn btn-success m-1" onClick={handleSave}>
                         Enregistrer
                     </button>
-                    <button type="button" className="btn btn-danger m-1" onClick={handleSave}>
+                    <button type="button" className="btn btn-danger m-1" onClick={handledelete}>
                         Supprimer
                     </button>
                     <button type="button" className="btn btn-outline-secondary m-1" onClick={handleReturn}>

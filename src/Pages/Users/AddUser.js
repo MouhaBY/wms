@@ -5,6 +5,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+import siteMap from "../../siteMap";
 
 
 const PROFILES = [
@@ -42,10 +43,10 @@ export default function AddUser() {
     const formOptions = { resolver: yupResolver(formSchema) };
     const { register, handleSubmit, formState: { errors } } = useForm(formOptions);
 
-    const handleReturn = () => navigate("/users");
+    const handleReturn = () => navigate(siteMap.Users.path);
     const handleSave = (data) => {
         console.log(data);
-        navigate("/users");
+        navigate(siteMap.Users.path);
     };
 
     const onSubmit = (data) => {

@@ -4,7 +4,8 @@ import { useNavigate } from "react-router-dom";
 import CheckCircleRoundedIcon from "@mui/icons-material/CheckCircleRounded";
 import CancelRoundedIcon from "@mui/icons-material/CancelRounded";
 import EditIcon from "@mui/icons-material/Edit";
-import { getPath, getRoles } from "../../routes";
+import { makePath, getRoles } from "../../routes";
+import siteMap from "../../siteMap";
 import hasRoles from "../../services/security/hasRoles";
 
 
@@ -17,10 +18,10 @@ const USERS = [
 
 export default function Users() {
     const navigate = useNavigate();
-    const handleAdd = () => navigate(getPath("adduser"));
-    const handleEdit = (id) => navigate(getPath("edituser", {"id": id}));
-    const hasEditRole = hasRoles(getRoles("edituser"));
-    const hasAddRole = hasRoles(getRoles("adduser"));
+    const handleAdd = () => navigate(siteMap.AddUser.path);
+    const handleEdit = (id) => navigate(makePath(siteMap.EditUser.path, {"id": id}));
+    const hasEditRole = hasRoles(getRoles(siteMap.EditUser.name));
+    const hasAddRole = hasRoles(getRoles(siteMap.AddUser.name));
 
     return (
         <div className="contain-div">

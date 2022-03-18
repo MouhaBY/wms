@@ -3,19 +3,18 @@ import Users from "./Pages/Users/Users";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import AddUser from "./Pages/Users/AddUser";
 import EditUser from "./Pages/Users/EditUser";
-import Login from "./Pages/Login/Login";
+import siteMap from "./siteMap";
 
 
 const routes = [
-    { description:"Connexion", name:"login", path:"/login", element:<Login />},
-    { description:"Index", name:"index", path:"/", element:<Dashboard />},
-    { description:"Tableau de bord", name:"dashboard", path:"/dashboard", element:<Dashboard />},
-    { description:"Utilisateurs", name:"users", path:"/users", element:<Users />, roles:["user", "admin"] }, 
+    { name:siteMap.Index.name, path:siteMap.Index.path, element:<Dashboard />},
+    { name:siteMap.Dashboard.name, path:siteMap.Dashboard.path, element:<Dashboard />},
+    { name:siteMap.Users.name, path:siteMap.Users.path, element:<Users />, roles:["user", "admin"] }, 
     { description:"Données", name:"datas", path:"/datas", element:<Users/>, roles:["user"] }, 
     { description:"Inventaires", name:"inventories", path:"/inventories", element:<></> }, 
     { description:"Configurations", name:"configurations", path:"/configurations", element:<></>, roles:["admin"]},
-    { description:"Créer utilisateur", name:"adduser", path:"/users/add", element:<AddUser />, roles:["admin"]},
-    { description:"Modifier utilisateur", name:"edituser", path:"/users/edit/:id", element:<EditUser />, roles:["admin"]},
+    { name:siteMap.AddUser.name, path:siteMap.AddUser.path, element:<AddUser />, roles:["admin"]},
+    { name:siteMap.EditUser.name, path:siteMap.EditUser.path, element:<EditUser />, roles:["admin"]},
 ];
 
 const compile = (parentRoute, subRoutes) => {
@@ -42,6 +41,15 @@ export const getRoutes = () => {
 export const getPath = (name, params= null) => {
     const routeFound = getRoutes().find(route => route.name === name);
     let path = routeFound ? routeFound.path : null;
+    if (path && params) {
+        Object.entries(params).forEach(([key, value]) => {
+            path = path ? path.replace(`:${key}`, value) : "";
+        });
+    }
+    return path;
+};
+
+export const makePath = (path, params= null) => {
     if (path && params) {
         Object.entries(params).forEach(([key, value]) => {
             path = path ? path.replace(`:${key}`, value) : "";

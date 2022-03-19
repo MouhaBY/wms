@@ -7,14 +7,14 @@ import siteMap from "./siteMap";
 
 
 const routes = [
-    { name:siteMap.Index.name, path:siteMap.Index.path, element:<Dashboard />},
-    { name:siteMap.Dashboard.name, path:siteMap.Dashboard.path, element:<Dashboard />},
-    { name:siteMap.Users.name, path:siteMap.Users.path, element:<Users />, roles:["user", "admin"] }, 
-    { description:"Données", name:"datas", path:"/datas", element:<Users/>, roles:["user"] }, 
-    { description:"Inventaires", name:"inventories", path:"/inventories", element:<></> }, 
-    { description:"Configurations", name:"configurations", path:"/configurations", element:<></>, roles:["admin"]},
-    { name:siteMap.AddUser.name, path:siteMap.AddUser.path, element:<AddUser />, roles:["admin"]},
-    { name:siteMap.EditUser.name, path:siteMap.EditUser.path, element:<EditUser />, roles:["admin"]},
+    { ...siteMap.Index, element:<Dashboard />},
+    { ...siteMap.Dashboard, element:<Dashboard />},
+    { ...siteMap.Users, element:<Users />, roles:["user", "admin"] }, 
+    { ...siteMap.Datas, element:<Users/>, roles:["user"] }, 
+    { ...siteMap.Inventories, element:<></> }, 
+    { ...siteMap.Settings, element:<></>, roles:["admin"]},
+    { ...siteMap.AddUser, element:<AddUser />, roles:["admin"]},
+    { ...siteMap.EditUser, element:<EditUser />, roles:["admin"]},
 ];
 
 const compile = (parentRoute, subRoutes) => {

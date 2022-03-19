@@ -10,14 +10,15 @@ import FactoryIcon from "@mui/icons-material/Factory";
 import SettingsIcon from "@mui/icons-material/Settings";
 import hasRoles from "../../services/security/hasRoles";
 import { getRoles } from "../../routes";
+import siteMap from "../../siteMap";
 
 
 const MENUS = [
-    {title:"Tableau de bord", route:"dashboard", icon:<HomeIcon/>},
-    {title:"Utilisateurs", route:"users", icon:<AccountCircleIcon/>}, 
-    {title:"Données", route:"datas", icon:<FeedIcon/>}, 
-    {title:"Inventaires", route:"inventories", icon:<FactoryIcon/> }, 
-    {title:"Configurations", route:"configurations", icon:<SettingsIcon/>}
+    {...siteMap.Dashboard, icon:<HomeIcon/>},
+    {...siteMap.Users, icon:<AccountCircleIcon/>}, 
+    {...siteMap.Datas, icon:<FeedIcon/>}, 
+    {...siteMap.Inventories, icon:<FactoryIcon/> }, 
+    {...siteMap.Settings, icon:<SettingsIcon/>}
 ];
 
 export default function Drawer(){
@@ -44,17 +45,17 @@ export default function Drawer(){
             <ul className="nav nav-pills flex-column mb-auto text-center">
                 {
                     MENUS.map((menu, index)=>(
-                        hasRoles(getRoles(menu.route)) && 
+                        hasRoles(getRoles(menu.name)) && 
                             <li key={index} className="nav-item">
                                 <RouterLink 
-                                    to={menu.route} 
+                                    to={menu.path} 
                                     className={"d-flex flex-row align-items-center nav-link " + (RouterLink.activeClassName ? "active" : "text-white")} 
                                     style={{ textDecoration: "none", color: "inherit" }}
                                 >
                                     <svg className="bi me-2" style={{width:showDrawer ? 20 : 24, height:showDrawer ? 20 : 24}} >
                                         {menu.icon}
                                     </svg>
-                                    {showDrawer && menu.title}
+                                    {showDrawer && menu.description}
                                 </RouterLink> 
                             </li>
                     ))

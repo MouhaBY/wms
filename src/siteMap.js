@@ -17,7 +17,7 @@ const siteMap = {
     Users : { 
         name:"users",
         path:"/users",
-        description:"Utilisateurs"
+        description:"Gestion des utilisateurs"
     },
     AddUser : {
         name:"adduser",
@@ -29,6 +29,21 @@ const siteMap = {
         path:"/users/edit/:id",
         description:"Modifier utilisateur"
     },
+    Datas : {
+        name:"datas",
+        path:"/datas",
+        description:"Données"  
+    },
+    Inventories : {
+        name:"inventories",
+        path:"/inventories",
+        description:"Inventaires" 
+    },
+    Settings : {
+        name:"settings",
+        path:"/settings",
+        description:"Configurations"
+    }
 };
 
 export default siteMap;

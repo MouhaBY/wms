@@ -25,7 +25,7 @@ export default function Users() {
 
     return (
         <div className="contain-div">
-            <h2>Utilisateurs</h2>
+            <h2>{siteMap.Users.description}</h2>
             <div>
                 {
                     hasAddRole &&

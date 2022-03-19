@@ -27,6 +27,10 @@ export default function AppBar (){
         dispatch(toggleDrawerAction());
     }
 
+    function closeDropdown() {
+        setShowDropdown(false);
+    }
+
     return(
         <div className="navbar navbar-dark bg-primary">
             <div className="d-flex justify-content-end">
@@ -41,12 +45,13 @@ export default function AppBar (){
                     <button className="btn dropdown-toggle" onClick={toggleDropdown}>{contact}</button>
                 </div>
                 {
-                    showDropdown && <div className="mydropdown">                            
-                        <button className="dropdown-item" onClick={handleDisconnect}>
-                            <span>Se déconnecter</span>
-                            <LogoutIcon style={{color:"red"}}/>
-                        </button>
-                    </div>
+                    showDropdown && 
+                        <div className="mydropdown">                            
+                            <button className="dropdown-item" onClick={handleDisconnect}>
+                                <span>Se déconnecter</span>
+                                <LogoutIcon style={{color:"red"}}/>
+                            </button>
+                        </div>
                 }
             </div>
         </div>

@@ -5,11 +5,11 @@ import { getRoutes } from "../routes";
 import Notfound from "../Pages/Notfound/Notfound";
 import NotAuthorized from "../Pages/NotAuthorized/NotAuthorized";
 import hasRoles from "../services/security/hasRoles";
-
+import MainAppContent from "./Main/MainAppContent";
 
 function PrivateRoute({ children }) {
     var roles = children.roles || [];
-    return hasRoles(roles) ? children.element : <NotAuthorized />;
+    return hasRoles(roles) ? <MainAppContent>{children.element}</MainAppContent> : <NotAuthorized />;
 }
 
 export default function SiteRoutes(){

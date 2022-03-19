@@ -1,8 +1,8 @@
 import React from "react";
+import { BrowserRouter as Router } from "react-router-dom";
 import AppBar from "./AppBar";
 import Drawer from "./Drawer";
 import SiteRoutes from "../SiteRoutes";
-import { BrowserRouter as Router } from "react-router-dom";
 
 
 export default function Main (){

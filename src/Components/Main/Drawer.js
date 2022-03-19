@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { NavLink as RouterLink, useNavigate } from "react-router-dom";
-import { selectShowDrawer } from "../../utils/selectors";
+import { selectShowDrawer } from "../../utils/redux/selectors";
 import WarehouseRoundedIcon from "@mui/icons-material/WarehouseRounded";
 import HomeIcon from "@mui/icons-material/Home";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
@@ -32,7 +32,7 @@ export default function Drawer(){
         >
             <div 
                 className={"d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none"}
-                onClick={ ()=>navigate("/") }
+                onClick={ ()=>navigate(siteMap.Index.path) }
             >
                 <svg className={"bi "+ (showDrawer ? "me-2" : "")} style={{width:40, height:32}}>
                     <WarehouseRoundedIcon fontSize="large" color="primary"/>

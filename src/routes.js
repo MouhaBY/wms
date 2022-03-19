@@ -4,10 +4,11 @@ import Dashboard from "./Pages/Dashboard/Dashboard";
 import AddUser from "./Pages/Users/AddUser";
 import EditUser from "./Pages/Users/EditUser";
 import siteMap from "./siteMap";
+import Index from "./Pages/Index/Index";
 
 
 const routes = [
-    { ...siteMap.Index, element:<Dashboard />},
+    { ...siteMap.Index, element:<Index />},
     { ...siteMap.Dashboard, element:<Dashboard />},
     { ...siteMap.Users, element:<Users />, roles:["user", "admin"] }, 
     { ...siteMap.Datas, element:<Users/>, roles:["user"] }, 

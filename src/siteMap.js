@@ -1,4 +1,4 @@
-const siteMap = {
+const SITEMAP = {
     Index : {
         name:"index",
         path:"/",
@@ -46,4 +46,4 @@ const siteMap = {
     }
 };
 
-export default siteMap;
+export default SITEMAP;

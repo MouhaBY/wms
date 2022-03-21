@@ -105,8 +105,9 @@ export default function AddUser() {
                                     }
                                 </div>
                             </div>
+                            {errors.password && <p className="invalid-feedback">{errors.password?.message}</p>}
                         </div>
-                        {errors.password && <p className="invalid-feedback">{errors.password?.message}</p>}
+                        
                     </div>
                     <div className="form-group col-md-6">
                         <label htmlFor="confirmpasswordinput">Confirmer mot de passe</label>

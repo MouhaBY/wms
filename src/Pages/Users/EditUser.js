@@ -79,7 +79,7 @@ export default function editUser() {
             <h2>Modifier utilisateur ({id})</h2>
             <form onSubmit={ handleSubmit(onSubmit) }>
                 <div>
-                    <button type="submit" className="btn btn-success m-1" onClick={handleSave}>
+                    <button type="submit" className="btn btn-success m-1">
                         Enregistrer
                     </button>
                     <button type="button" className="btn btn-danger m-1" onClick={handledelete}>
@@ -133,8 +133,9 @@ export default function editUser() {
                                                 }
                                             </div>
                                         </div>
+                                        {errors.password && <p className="invalid-feedback">{errors.password?.message}</p>}
                                     </div>
-                                    {errors.password && <p className="invalid-feedback">{errors.password?.message}</p>}
+                                    
                                 </div>
                                 <div className="form-group col-md-6">
                                     <label htmlFor="confirmpasswordinput">Confirmer mot de passe</label>

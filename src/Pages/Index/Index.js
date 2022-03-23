@@ -7,5 +7,5 @@ export default function Index() {
         <div className="contain-div">
             <h2>{siteMap.Index.description}</h2>
         </div>
-    )
+    );
 }

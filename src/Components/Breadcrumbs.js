@@ -10,8 +10,8 @@ function getSiteMapObjects(){
     keys.map((key)=>{
         siteMapObjectsarray.push(SITEMAP[key]);
     });
-    return siteMapObjectsarray
-};
+    return siteMapObjectsarray;
+}
 
 function pathSplit(){
     var path = window.location.pathname;
@@ -20,17 +20,17 @@ function pathSplit(){
     if(pathArray.length > 1){
         menuArray.push("/");
         if(pathArray[1].length > 0){
-          menuArray.push("/" + pathArray[1]);
+            menuArray.push("/" + pathArray[1]);
         }
         if(pathArray.length > 2){
-          var submenu = "/" + pathArray[1] + "/" + pathArray[2];
-          if(pathArray.length > 3){
-            submenu = "/" + pathArray[1] + "/" + pathArray[2] +"/:id";
-          }
-          menuArray.push(submenu)
+            var submenu = "/" + pathArray[1] + "/" + pathArray[2];
+            if(pathArray.length > 3){
+                submenu = "/" + pathArray[1] + "/" + pathArray[2] +"/:id";
+            }
+            menuArray.push(submenu);
         }    
     }
-    return menuArray
+    return menuArray;
 }
 
 function getSiteMap(){
@@ -38,11 +38,11 @@ function getSiteMap(){
     var keys = getSiteMapObjects();
     var pathNameArray=[];
     pathNameArray = pathArray.map((path)=>{
-        let pathFound = keys.find(key => key.path === path)
+        let pathFound = keys.find(key => key.path === path);
         if (pathFound) {
-            return pathFound
+            return pathFound;
         }
-    })
+    });
     return pathNameArray;
 }
 
@@ -55,11 +55,11 @@ export default function Breadcrumbs() {
             {
                 pathArray.map((menu, index)=>( 
                     <div key={index}>
-                       <a className="text-decoration-none"> / </a>
-                       <a href={makePath(menu.path, {"id": id})} className="text-decoration-none">{menu.description}</a>
+                        <a className="text-decoration-none"> / </a>
+                        <a href={makePath(menu.path, {"id": id})} className="text-decoration-none">{menu.description}</a>
                     </div>         
                 ))
             }
         </div>
-    )
+    );
 }

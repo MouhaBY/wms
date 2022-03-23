@@ -5,15 +5,20 @@ import { getRoutes } from "../common/routes/routes";
 import Notfound from "../Pages/Notfound/Notfound";
 import NotAuthorized from "../Pages/NotAuthorized/NotAuthorized";
 import hasRoles from "../common/services/security/hasRoles";
-import MainAppContent from "./MainAppContent";
+import Breadcrumbs from "./Breadcrumbs";
 
 
 function PrivateRoute({ children }) {
     var roles = children.roles || [];
-    return hasRoles(roles) ? <MainAppContent>{children.element}</MainAppContent> : <NotAuthorized />;
+    return hasRoles(roles) ? 
+        <>
+            <Breadcrumbs />
+            {children.element}
+        </> 
+        : <NotAuthorized />;
 }
 
-export default function SiteRoutes(){
+export default function Content(){
 
     return(
         <Routes>

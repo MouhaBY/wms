@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import AppBar from "./ui/partials/AppBar";
 import Drawer from "./ui/partials/Drawer";
-import SiteRoutes from "../../Components/SiteRoutes";
+import Content from "../../Components/Content";
 
 
 export default function Main (){
@@ -13,7 +13,7 @@ export default function Main (){
                 <div className="main-div-div">
                     <AppBar />
                     <div className="main-div-url">
-                        <SiteRoutes />
+                        <Content />
                     </div>
                 </div>
             </div>

@@ -27,9 +27,9 @@ export default function AppBar (){
         dispatch(toggleDrawerAction());
     }
 
-    function closeDropdown() {
+    /*function closeDropdown() {
         setShowDropdown(false);
-    }
+    }*/
 
     return(
         <div className="navbar navbar-dark bg-primary">

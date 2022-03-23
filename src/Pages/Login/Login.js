@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { loginAction } from "../../features/authentication";
+import { loginAction } from "../../common/services/authentication";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 
 

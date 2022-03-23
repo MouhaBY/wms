@@ -1,6 +1,6 @@
 import React from "react";
-import SITEMAP from "../../siteMap";
-import { makePath } from "../../routes";
+import SITEMAP from "../common/routes/siteMap";
+import { makePath } from "../common/routes/routes";
 import { useParams } from "react-router-dom";
 
 

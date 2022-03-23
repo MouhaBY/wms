@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import "./index.css";
 import "bootstrap/dist/css/bootstrap.css";
-import { store } from "./utils/redux/store";
+import { store } from "./common/store/store";
 import App from "./Components/App";
 import ErrorBoundary from "./Components/ErrorBoundaries";
 

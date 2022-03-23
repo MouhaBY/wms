@@ -4,9 +4,9 @@ import { useNavigate } from "react-router-dom";
 import CheckCircleRoundedIcon from "@mui/icons-material/CheckCircleRounded";
 import CancelRoundedIcon from "@mui/icons-material/CancelRounded";
 import EditIcon from "@mui/icons-material/Edit";
-import { makePath, getRoles } from "../../routes";
-import siteMap from "../../siteMap";
-import hasRoles from "../../services/security/hasRoles";
+import { makePath, getRoles } from "../../common/routes/routes";
+import siteMap from "../../common/routes/siteMap";
+import hasRoles from "../../common/services/security/hasRoles";
 
 
 const USERS = [

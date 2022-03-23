@@ -1,10 +1,10 @@
 import React from "react";
-import Users from "./Pages/Users/Users";
-import Dashboard from "./Pages/Dashboard/Dashboard";
-import AddUser from "./Pages/Users/AddUser";
-import EditUser from "./Pages/Users/EditUser";
+import Users from "../../Pages/Users/Users";
+import Dashboard from "../../Pages/Dashboard/Dashboard";
+import AddUser from "../../Pages/Users/AddUser";
+import EditUser from "../../Pages/Users/EditUser";
 import siteMap from "./siteMap";
-import Index from "./Pages/Index/Index";
+import Index from "../../Pages/Index/Index";
 
 
 const routes = [

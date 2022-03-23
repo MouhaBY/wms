@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { selectProfile } from "../../utils/redux/selectors";
+import { selectProfile } from "../../store/selectors";
 
 
 export default function hasRoles(roles) {

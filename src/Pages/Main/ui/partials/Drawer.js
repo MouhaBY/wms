@@ -1,16 +1,16 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { NavLink as RouterLink, useNavigate } from "react-router-dom";
-import { selectShowDrawer } from "../../utils/redux/selectors";
 import WarehouseRoundedIcon from "@mui/icons-material/WarehouseRounded";
 import HomeIcon from "@mui/icons-material/Home";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import FeedIcon from "@mui/icons-material/Feed";
 import FactoryIcon from "@mui/icons-material/Factory";
 import SettingsIcon from "@mui/icons-material/Settings";
-import hasRoles from "../../services/security/hasRoles";
-import { getRoles } from "../../routes";
-import siteMap from "../../siteMap";
+import { selectShowDrawer } from "../../../../common/store/selectors";
+import hasRoles from "../../../../common/services/security/hasRoles";
+import { getRoles } from "../../../../common/routes/routes";
+import siteMap from "../../../../common/routes/siteMap";
 
 
 const MENUS = [

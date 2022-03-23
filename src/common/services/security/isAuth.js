@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
-import { selectToken } from "../../utils/redux/selectors";
+import { selectToken } from "../../store/selectors";
+
 
 export default function isAuth(){
     const token = useSelector(selectToken());

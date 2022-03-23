@@ -1,5 +1,5 @@
 import React from "react";
-import siteMap from "../../siteMap";
+import siteMap from "../../common/routes/siteMap";
 
 
 export default function Index() {

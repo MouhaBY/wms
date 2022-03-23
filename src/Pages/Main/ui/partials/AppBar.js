@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { logoutAction } from "../../features/authentication";
-import { toggleDrawerAction } from "../../features/drawer";
-import { selectContact } from "../../utils/redux/selectors";
 import MenuIcon from "@mui/icons-material/Menu";
 import LogoutIcon from "@mui/icons-material/Logout";
+import { logoutAction } from "../../../../common/services/authentication";
+import { toggleDrawerAction } from "../../../../common/services/drawer";
+import { selectContact } from "../../../../common/store/selectors";
 
 
 export default function AppBar (){

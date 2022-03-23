@@ -1,8 +1,8 @@
 import React from "react";
 import "../Pages/App.css";
-import Login from "../Pages/Login/Login";
-import isAuth from "../services/security/isAuth";
-import Main from "./Main/Main";
+import Login from "../Pages/Login";
+import isAuth from "../common/services/security/isAuth";
+import Main from "../Pages/Main";
 
 
 function App() {

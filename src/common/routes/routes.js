@@ -5,6 +5,7 @@ import AddUser from "../../Pages/Users/AddUser";
 import EditUser from "../../Pages/Users/EditUser";
 import siteMap from "./siteMap";
 import Index from "../../Pages/Index/Index";
+import Areas from "../../Pages/Areas";
 
 
 const routes = [
@@ -16,6 +17,7 @@ const routes = [
     { ...siteMap.Settings, element:<></>, roles:["admin"]},
     { ...siteMap.AddUser, element:<AddUser />, roles:["admin"]},
     { ...siteMap.EditUser, element:<EditUser />, roles:["admin"]},
+    { ...siteMap.Areas, element:<Areas />, roles:["user", "admin"] }
 ];
 
 const compile = (parentRoute, subRoutes) => {

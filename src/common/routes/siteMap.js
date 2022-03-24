@@ -43,6 +43,11 @@ const SITEMAP = {
         name:"settings",
         path:"/settings",
         description:"Configurations"
+    },
+    Areas : {
+        name:"areas",
+        path:"/areas",
+        description:"Emplacements"
     }
 };
 

@@ -2,14 +2,12 @@ import React from "react";
 import { getRoles } from "../../common/routes/routes";
 import hasRoles from "../../common/services/security/hasRoles";
 import siteMap from "../../common/routes/siteMap";
-import { getDepositChildrens } from "./common/functions/getDeposits";
 import CreateDepositsLevels from "./ui/components/CreateDepositsLevels";
 
 
 export default function Areas() {
     const hasAddRole = hasRoles(getRoles(siteMap.Areas.name));
     const handleAdd = () => {};
-    var deposits = getDepositChildrens();
 
     return (
         <div>
@@ -22,9 +20,7 @@ export default function Areas() {
                 }
             </div>
             <hr />
-            {
-                deposits.length > 0 ? <CreateDepositsLevels deposits={deposits} level={1}/> : "Aucun dépôt créé" 
-            }
+            <CreateDepositsLevels />
         </div>
     );
 }

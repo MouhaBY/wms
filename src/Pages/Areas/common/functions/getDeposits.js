@@ -17,5 +17,5 @@ const AREAS = [
 
 export function getDepositChildrens(depositCode=null){
     let deposits = AREAS.filter(area => area.ParentCode === depositCode && area.IsDeposit === true) || [];
-    return deposits
-};
+    return deposits;
+}

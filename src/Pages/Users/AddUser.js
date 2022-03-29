@@ -79,7 +79,7 @@ export default function AddUser() {
                 <div className="form-group">
                     <label htmlFor="usernameinput">Nom d&apos;utilisateur</label>
                     <input
-                        type="text" 
+                        type="text"
                         className={`form-control form-control-lg ${errors.username ? "is-invalid" : ""}`}
                         id="usernameinput" 
                         placeholder="Votre nom d&apos;utilisateur"

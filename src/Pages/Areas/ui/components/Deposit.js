@@ -24,7 +24,6 @@ export default function Deposit({deposit, children}) {
 }
 
 Deposit.propTypes = {
-    children : PropTypes.element,
     deposit: PropTypes.shape({
         Code : PropTypes.string,
         Name : PropTypes.string,

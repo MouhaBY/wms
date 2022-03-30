@@ -4,13 +4,22 @@ import hasRoles from "../../common/services/security/hasRoles";
 import siteMap from "../../common/routes/siteMap";
 import CreateDepositsLevels from "./ui/components/CreateDepositsLevels";
 import AddArea from "./ui/components/AddArea";
+import ListAreas from "./ui/components/ListAreas";
 
 
 export default function Areas() {
-    const [showModal, setShowModal] = useState(false);
+    const [showAdd, setShowAdd] = useState(false);
+    const [showAreas, setShowAreas] = useState(false);
+    const [depositCode, setDepositCode] = useState("");
     const hasAddRole = hasRoles(getRoles(siteMap.Areas.name));
-    const handleAdd = () => { setShowModal(true) };
-    const handleCloseAdd = () => { setShowModal(false) };
+    const handleAdd = () => { setShowAdd(true) };
+    const handleCloseAdd = () => { setShowAdd(false) };
+    const handleAreas = (code) => { 
+        setShowAreas(true); 
+        setDepositCode(code)
+    };
+    const handleCloseAreas = () => { setShowAreas(false) };
+
 
     return (
         <>
@@ -24,9 +33,10 @@ export default function Areas() {
                     }
                 </div>
                 <hr />
-                <CreateDepositsLevels />
+                <CreateDepositsLevels showAreas={handleAreas}/>
             </div>
-            <AddArea show={showModal} handleClose={handleCloseAdd} />
+            <AddArea show={showAdd} handleClose={handleCloseAdd} />
+            <ListAreas depositCode={depositCode} show={showAreas} handleClose={handleCloseAreas}/>
         </>
     );
 }

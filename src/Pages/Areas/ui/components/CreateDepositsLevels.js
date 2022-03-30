@@ -17,7 +17,7 @@ function CreateLevel({ children, level }){
     );
 }
 
-export default function CreateDepositsLevels({deposits=getDepositChildrens(), level=1}){
+export default function CreateDepositsLevels({deposits=getDepositChildrens(), level=1, showAreas}){
     const [showChildren, setShowChildren] = useState(false);
 
     const toggleShowChildren = () => {
@@ -33,7 +33,7 @@ export default function CreateDepositsLevels({deposits=getDepositChildrens(), le
                             let childDeposits = getDepositChildrens(deposit.Code);
                             return(
                                 <div key={deposit.Code}>
-                                    <Deposit deposit={deposit} showFunct={toggleShowChildren}>
+                                    <Deposit deposit={deposit} showAreas={showAreas} showFunct={toggleShowChildren}>
                                         {   
                                             childDeposits.length > 0 && (
                                                 <a 
@@ -51,7 +51,7 @@ export default function CreateDepositsLevels({deposits=getDepositChildrens(), le
                                     <hr />
                                     {
                                         showChildren && childDeposits.length > 0 && (
-                                            <CreateDepositsLevels deposits={childDeposits} level={level+1}/>
+                                            <CreateDepositsLevels deposits={childDeposits} level={level+1} showAreas={showAreas}/>
                                         )
                                     }
                                 </div>

@@ -4,6 +4,7 @@ import { getDeposits, getLevel } from "../../common/functions/getDeposits";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import { useForm } from "react-hook-form";
+import PropTypes from "prop-types";
 
 
 export default function AddArea({show, handleClose}) {
@@ -11,7 +12,7 @@ export default function AddArea({show, handleClose}) {
         console.log(data);
         reset();
         handleClose();
-    }
+    };
 
     const formSchema = Yup.object().shape({
         code: Yup.string()
@@ -57,7 +58,7 @@ export default function AddArea({show, handleClose}) {
                     </div>
                     <div className="form-group">
                         <label>Parent</label>
-                        <select className={`form-select form-select-lg mb-3`} defaultValue={""} {...register("parent")}>
+                        <select className="form-select form-select-lg mb-3" defaultValue={""} {...register("parent")}>
                             <option value={""}>Elément principal</option>
                             {
                                 getDeposits().map((deposit)=>(
@@ -87,5 +88,10 @@ export default function AddArea({show, handleClose}) {
                 </div>
             </form>
         </Modal>
-    )
+    );
 }
+
+AddArea.propTypes = {
+    show: PropTypes.bool,
+    handleClose: PropTypes.func
+};

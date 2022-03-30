@@ -1,6 +1,7 @@
 import React from "react";
 import Modal from "../../../../Components/Modal";
 import { getAreasChildrens } from "../../common/functions/getDeposits";
+import PropTypes from "prop-types";
 
 
 export default function ListAreas({depositCode, show, handleClose}) {
@@ -8,32 +9,36 @@ export default function ListAreas({depositCode, show, handleClose}) {
 
     return (
         <Modal show={show} unSetModal={handleClose} title={"Liste des emplacements : "+ depositCode}>
-        <div className="modal-body">
-        {
-            areas.length > 0 ? (
-<table className="table table-bordered">
-            <thead>
-                <tr>
-                    <th scope="col">Code</th>
-                    <th scope="col">Désignation</th>
-                </tr>
-            </thead>
-            <tbody>
+            <div className="modal-body">
                 {
-                    areas.map((area)=>(
-                        <tr>
-                            <td>{area.Code}</td>
-                            <td>{area.Name}</td>
-                        </tr>
-                    ))
+                    areas.length > 0 ? (
+                        <table className="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Code</th>
+                                    <th scope="col">Désignation</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {
+                                    areas.map((area)=>(
+                                        <tr key={area.Code}>
+                                            <td>{area.Code}</td>
+                                            <td>{area.Name}</td>
+                                        </tr>
+                                    ))
+                                }
+                            </tbody>
+                        </table>
+                    ) : "Aucun emplacement à afficher"
                 }
-            </tbody>
-        </table>
-            )
-            : "Aucun emplacement à afficher"
-        }
-        
-        </div>
-    </Modal>
-  )
+            </div>
+        </Modal>
+    );
 }
+
+ListAreas.propTypes = {
+    depositCode : PropTypes.string,
+    show: PropTypes.bool,
+    handleClose : PropTypes.func
+};

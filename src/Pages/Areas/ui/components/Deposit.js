@@ -3,7 +3,10 @@ import PropTypes from "prop-types";
 
 
 export default function Deposit({deposit, showAreas, children}) {
-    const handleShowAreas = (code) => { showAreas(code) }
+    const handleShowAreas = (code) => { 
+        showAreas(code); 
+    };
+    
     return (
         <div>
             {
@@ -29,5 +32,6 @@ Deposit.propTypes = {
         Code : PropTypes.string,
         Name : PropTypes.string,
         ParentCode : PropTypes.string
-    })
+    }),
+    showAreas: PropTypes.bool
 };

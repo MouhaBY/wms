@@ -71,5 +71,6 @@ CreateLevel.propTypes = {
 
 CreateDepositsLevels.propTypes = {
     deposits: PropTypes.array,
-    level: PropTypes.number
+    level: PropTypes.number,
+    showAreas: PropTypes.bool
 };

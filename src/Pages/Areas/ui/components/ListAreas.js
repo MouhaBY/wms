@@ -1,6 +1,7 @@
 import React from "react";
 import Modal from "../../../../Components/Modal";
 import { getAreasChildrens } from "../../common/functions/getDeposits";
+import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 
 
 export default function ListAreas({depositCode, show, handleClose}) {
@@ -16,6 +17,7 @@ export default function ListAreas({depositCode, show, handleClose}) {
                 <tr>
                     <th scope="col">Code</th>
                     <th scope="col">Désignation</th>
+                    <th scope="col">Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -24,6 +26,9 @@ export default function ListAreas({depositCode, show, handleClose}) {
                         <tr>
                             <td>{area.Code}</td>
                             <td>{area.Name}</td>
+                            <td>
+                                <button className="btn btn-outline-primary btn-sm m-1"><DeleteOutlinedIcon /></button>
+                            </td>
                         </tr>
                     ))
                 }

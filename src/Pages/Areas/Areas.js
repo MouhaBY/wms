@@ -12,14 +12,22 @@ export default function Areas() {
     const [showAreas, setShowAreas] = useState(false);
     const [depositCode, setDepositCode] = useState("");
     const hasAddRole = hasRoles(getRoles(siteMap.Areas.name));
-    const handleAdd = () => { setShowAdd(true) };
-    const handleCloseAdd = () => { setShowAdd(false) };
+    const handleAdd = () => { 
+        setShowAdd(true);
+    };
+
+    const handleCloseAdd = () => { 
+        setShowAdd(false); 
+    };
+
     const handleAreas = (code) => { 
         setShowAreas(true); 
-        setDepositCode(code)
+        setDepositCode(code);
     };
-    const handleCloseAreas = () => { setShowAreas(false) };
 
+    const handleCloseAreas = () => { 
+        setShowAreas(false);
+    };
 
     return (
         <>

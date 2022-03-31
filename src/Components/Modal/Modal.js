@@ -1,5 +1,6 @@
 import React from "react";
 import "./modal.css";
+import PropTypes from "prop-types";
 
 
 const Modal = ({ unSetModal, show, children, title }) => {
@@ -19,3 +20,9 @@ const Modal = ({ unSetModal, show, children, title }) => {
 };
 
 export default Modal;
+
+Modal.propTypes = {
+    unSetModal: PropTypes.func,
+    show: PropTypes.bool,
+    title: PropTypes.string
+};

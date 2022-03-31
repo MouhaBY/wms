@@ -17,7 +17,7 @@ export function getDeposits(){
 }
 
 export function getLevel(depositCode){
-    let exists = AREAS.find(area => area.IsDeposit === true && area.Code === depositCode )
+    let exists = AREAS.find(area => area.IsDeposit === true && area.Code === depositCode );
     if (exists) {
         let level = 1;
         while(exists.ParentCode){

@@ -1,65 +1,71 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Modal from "../../../../Components/Modal";
 import { getAreasChildrens } from "../../common/functions/getDeposits";
-<<<<<<< HEAD
-import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
-=======
+import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
 import PropTypes from "prop-types";
->>>>>>> 766f946b97763e1ee55e52a02d63d8f6ad7522fb
 
+
+function filtreTexte(arr, requete) {
+    if(requete.length>0){
+        let filtered = [];
+        arr.map((element) => {
+            let strongCode = element.Code.toUpperCase();
+            let strongName = element.Name.toUpperCase();
+            let strongRequete = requete.toUpperCase();
+            if(strongCode.includes(strongRequete) || strongName.includes(strongRequete)){
+                filtered.push(element);
+            }
+        });
+        return filtered;
+    }
+    else return arr;
+}
 
 export default function ListAreas({depositCode, show, handleClose}) {
-    var areas = getAreasChildrens(depositCode);
+    const [search, setSearch] = useState("");
+    const [areas, setAreas] = useState([]);
+
+    useEffect(()=>{
+        let b = getAreasChildrens(depositCode);
+        let c = filtreTexte(b,search);
+        setAreas(c);
+    },[search, depositCode]);
 
     return (
         <Modal show={show} unSetModal={handleClose} title={"Liste des emplacements : "+ depositCode}>
-<<<<<<< HEAD
-        <div className="modal-body">
-        {
-            areas.length > 0 ? (
-<table className="table table-bordered">
-            <thead>
-                <tr>
-                    <th scope="col">Code</th>
-                    <th scope="col">Désignation</th>
-                    <th scope="col">Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                {
-                    areas.map((area)=>(
-                        <tr>
-                            <td>{area.Code}</td>
-                            <td>{area.Name}</td>
-                            <td>
-                                <button className="btn btn-outline-primary btn-sm m-1"><DeleteOutlinedIcon /></button>
-                            </td>
-                        </tr>
-                    ))
-=======
             <div className="modal-body">
+                <div>
+                    <input type="text" value={search} onChange={(evt) => setSearch(evt.target.value)} placeholder="Recherche" />
+                </div>
                 {
                     areas.length > 0 ? (
-                        <table className="table table-bordered">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Code</th>
-                                    <th scope="col">Désignation</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {
-                                    areas.map((area)=>(
-                                        <tr key={area.Code}>
-                                            <td>{area.Code}</td>
-                                            <td>{area.Name}</td>
-                                        </tr>
-                                    ))
-                                }
-                            </tbody>
-                        </table>
+                        <div>
+                            <table className="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Code</th>
+                                        <th scope="col">Désignation</th>
+                                        <th scope="col">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {
+                                        areas.map((area)=>(
+                                            <tr key={area.Code}>
+                                                <td>{area.Code}</td>
+                                                <td>{area.Name}</td>
+                                                <td>
+                                                    <button className="btn btn-outline-danger btn-sm m-1">
+                                                        <DeleteOutlinedIcon />
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        ))
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
                     ) : "Aucun emplacement à afficher"
->>>>>>> 766f946b97763e1ee55e52a02d63d8f6ad7522fb
                 }
             </div>
         </Modal>

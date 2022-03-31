@@ -24,5 +24,6 @@ export default Modal;
 Modal.propTypes = {
     unSetModal: PropTypes.func,
     show: PropTypes.bool,
-    title: PropTypes.string
+    title: PropTypes.string,
+    children: PropTypes.element
 };

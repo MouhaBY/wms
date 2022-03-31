@@ -35,7 +35,7 @@ export default function CreateDepositsLevels({deposits=getDepositChildrens(), le
                                 <div key={deposit.Code}>
                                     <Deposit deposit={deposit} showAreas={showAreas} showFunct={toggleShowChildren}>
                                         {   
-                                            childDeposits.length > 0 && (
+                                            childDeposits.length > 0 ? (
                                                 <a 
                                                     className="nav-link" 
                                                     type="button" 
@@ -45,7 +45,7 @@ export default function CreateDepositsLevels({deposits=getDepositChildrens(), le
                                                         showChildren ? "Masquer" : "Afficher +" 
                                                     }
                                                 </a>
-                                            )
+                                            ) : null
                                         }
                                     </Deposit>
                                     <hr />
@@ -72,5 +72,5 @@ CreateLevel.propTypes = {
 CreateDepositsLevels.propTypes = {
     deposits: PropTypes.array,
     level: PropTypes.number,
-    showAreas: PropTypes.bool
+    showAreas: PropTypes.func
 };

@@ -11,7 +11,7 @@ const AREAS = [
     {Code:"ASS-QLT-02", Name:"Assistance qualité 02", ParentCode:"QLT-02", IsDeposit:true},
     {Code:"REC", Name:"Réception", ParentCode:"D03", IsDeposit:true},
     {Code:"D02", Name:"Dépot 02", ParentCode:"E02", IsDeposit:true},
-    {Code:"A001", Name:"Emp. A001", ParentCode:"D01", IsDeposit:false},
+    {Code:"A001", Name:"Emp. ", ParentCode:"D01", IsDeposit:false},
     {Code:"A0012", Name:"Emp. A001", ParentCode:"D01", IsDeposit:false},
     {Code:"A0013", Name:"Emp. A001", ParentCode:"D01", IsDeposit:false},
     {Code:"A0041", Name:"Emp. A001", ParentCode:"D01", IsDeposit:false},
@@ -30,7 +30,7 @@ const AREAS = [
     {Code:"A0005", Name:"Emp. A001", ParentCode:"D01", IsDeposit:false},
     {Code:"A0004", Name:"Emp. A001", ParentCode:"D01", IsDeposit:false},
     {Code:"A0003", Name:"Emp. A001", ParentCode:"D01", IsDeposit:false},
-    {Code:"A0002", Name:"Emp. A001", ParentCode:"D01", IsDeposit:false},
+    {Code:"AE000A", Name:"Emp. E001", ParentCode:"E01", IsDeposit:false},
 ];
 
 export default AREAS;
